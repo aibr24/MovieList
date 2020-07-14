@@ -1,9 +1,10 @@
 import React from "react";
 import { UpdateButtonStyled } from "../../styles";
-const UpdateButton = () => {
+const UpdateButton = ({ updateMovie, movie }) => {
   return (
     <div>
-      <UpdateButtonStyled>UpdateButton</UpdateButtonStyled>
+      <UpdateButtonStyled onClick={() => updateMovie(movie)}>{movie.watched ? "Unwatched" : "Watched"}</UpdateButtonStyled>
+
     </div>
   );
 };

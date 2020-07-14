@@ -9,6 +9,7 @@ import Searchbar from "./SearchBar";
 import MovieItem from "./MovieItem";
 
 const MovieList = () => {
+  let newMovie = "";
   const [query, setQuery] = useState("");
 
   const movieList = movieStore.movies
@@ -25,16 +26,20 @@ const MovieList = () => {
         movie.name.toLowerCase().includes(query.toLowerCase()) &&
         movie.watched === true
     )
-    .map((movie) => <MovieItem movie={movie} key={movie.id} />);
+    .map((movie) => <MovieItem movie={movie} key={movie.name} />);
 
   return (
-    <div className="row">
-      <div>
+    <div className="row" >
+      <input onChange={(event) => newMovie = event.target.value} />
+      <button onClick={() => movieStore.createMovie(newMovie)}></button>
+      <div align="center">
         <Searchbar setQuery={setQuery} />
+        <h4>WatchList</h4>
         {movieList}
       </div>
-      <div>
+      <div align="center">
         <Searchbar setQuery={setQuery} />
+        <h4>Watched</h4>
         {watchedList}
       </div>
     </div>
