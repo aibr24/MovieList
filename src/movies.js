@@ -1,4 +1,3 @@
-import { observer } from "mobx-react";
 const movies = [
   {
     id: 1,

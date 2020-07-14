@@ -2,20 +2,25 @@ import React from "react";
 import { decorate, observable } from "mobx";
 import movies from "../movies";
 class MovieStore {
-
   movies = movies;
+  deleteMovie = (movieId) => {
+    this.movies = this.movies.filter((movie) => movie.name !== movieId);
+  };
+
   createMovie = (newMovie) => {
     const addedMovie = {
-      id: 5,
+      id: 0,
       name: newMovie,
       watched: false,
-    }
+    };
+    addedMovie.id = this.movies.id
+      ? 0
+      : this.movies[this.movies.length - 1].id + 1;
     this.movies.push(addedMovie);
     console.log(movies);
-  }
+  };
   updateMovie = (updatedMovie) => {
-    const movie = this.movies
-      .find((movie) => movie.id === updatedMovie.id);
+    const movie = this.movies.find((movie) => movie.id === updatedMovie.id);
 
     movie.watched = !updatedMovie.watched;
   };
