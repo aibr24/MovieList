@@ -10,12 +10,13 @@ import MovieItem from "./MovieItem";
 
 const MovieList = () => {
   let newMovie = "";
-  const [query, setQuery] = useState("");
+  const [query1, setQuery1] = useState("");
+  const [query2, setQuery2] = useState("");
 
   const movieList = movieStore.movies
     .filter(
       (movie) =>
-        movie.name.toLowerCase().includes(query.toLowerCase()) &&
+        movie.name.toLowerCase().includes(query1.toLowerCase()) &&
         movie.watched === false
     )
     .map((movie) => <MovieItem movie={movie} key={movie.id} />);
@@ -23,7 +24,7 @@ const MovieList = () => {
   const watchedList = movieStore.movies
     .filter(
       (movie) =>
-        movie.name.toLowerCase().includes(query.toLowerCase()) &&
+        movie.name.toLowerCase().includes(query2.toLowerCase()) &&
         movie.watched === true
     )
     .map((movie) => <MovieItem movie={movie} key={movie.name} />);
@@ -38,14 +39,14 @@ const MovieList = () => {
           onClick={() => movieStore.createMovie(newMovie)}
         >
           add
-      </button>
+        </button>
       </div>
       <div className="container-fluid ">
-        <div className="row" >
+        <div className="row">
           <div className="list-group col-lg-6 col-md-6 col-sm-12">
-            <Searchbar setQuery={setQuery} />
+            <Searchbar setQuery={setQuery1} />
             <h5 className="list-group-item active">
-              WatchList
+              {movieList.length ? "Watchlist" : "No Movies To Watch"}
               <span className="badge badge-primary badge-pill">
                 {movieList.length}
               </span>
@@ -54,9 +55,9 @@ const MovieList = () => {
             {movieList}
           </div>
           <div className="list-group col-lg-6 col-md-6 col-sm-12">
-            <Searchbar setQuery={setQuery} />
+            <Searchbar setQuery={setQuery2} />
             <h5 className="list-group-item active">
-              Watched
+              {watchedList.length ? "Watched" : "No Movies To Watched"}
               <span className="badge badge-primary badge-pill">
                 {watchedList.length}
               </span>
@@ -65,7 +66,7 @@ const MovieList = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 export default observer(MovieList);

@@ -13,9 +13,7 @@ class MovieStore {
       name: newMovie,
       watched: false,
     };
-    addedMovie.id = this.movies.id
-      ? 0
-      : this.movies[this.movies.length - 1].id + 1;
+    addedMovie.id = this.movies[this.movies.length - 1].id + 1;
     this.movies.push(addedMovie);
     console.log(movies);
   };
