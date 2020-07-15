@@ -8,7 +8,6 @@ export const SearchBarStyled = styled.input`
 `;
 
 export const ProductImage = styled.div`
-  // margin: 20px;
   img {
     display: block;
     margin-left: auto;

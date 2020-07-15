@@ -6,12 +6,13 @@ import movieStore from "../../store/MovieStore";
 
 const DeleteButton = ({ movie }) => {
   return (
-    <UpdateButtonStyled
-      color="red"
+    <button
+      type="button"
+      class="btn btn-danger"
       onClick={() => movieStore.deleteMovie(movie)}
     >
-      Delete
-    </UpdateButtonStyled>
+      Danger
+    </button>
   );
 };
 

@@ -29,18 +29,39 @@ const MovieList = () => {
     .map((movie) => <MovieItem movie={movie} key={movie.name} />);
 
   return (
-    <div className="row" >
-      <input onChange={(event) => newMovie = event.target.value} />
-      <button onClick={() => movieStore.createMovie(newMovie)}></button>
-      <div align="center">
-        <Searchbar setQuery={setQuery} />
-        <h4>WatchList</h4>
-        {movieList}
-      </div>
-      <div align="center">
-        <Searchbar setQuery={setQuery} />
-        <h4>Watched</h4>
-        {watchedList}
+    <div className="container">
+      <input onChange={(event) => (newMovie = event.target.value)} />
+      <button
+        type="button"
+        class="btn btn-dark"
+        onClick={() => movieStore.createMovie(newMovie)}
+      >
+        add
+      </button>
+      <div className="container-fluid">
+        <div>
+          <Searchbar setQuery={setQuery} />
+          <div className="list-group ">
+            <h4 className="list-group-item active">
+              WatchList
+              <span className="badge badge-primary badge-pill">
+                {movieList.length}
+              </span>
+            </h4>
+
+            {movieList}
+          </div>
+          <div className="list-group">
+            <Searchbar setQuery={setQuery} />
+            <h4>
+              Watched
+              <span className="badge badge-primary badge-pill">
+                {watchedList.length}
+              </span>
+            </h4>
+            {watchedList}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,6 @@ const SeachBar = ({ setQuery }) => {
         placeholder="Search For A Movie"
         onChange={(event) => setQuery(event.target.value)}
       />
-      ;
     </>
   );
 };
