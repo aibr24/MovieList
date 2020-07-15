@@ -47,7 +47,7 @@ const MovieList = () => {
             <Searchbar setQuery={setQuery1} />
             <h5 className="list-group-item active">
               {movieList.length ? "Watchlist" : "No Movies To Watch"}
-              <span className="badge badge-primary badge-pill">
+              <span className="badge badge-dark badge-pill">
                 {movieList.length}
               </span>
             </h5>
@@ -58,7 +58,7 @@ const MovieList = () => {
             <Searchbar setQuery={setQuery2} />
             <h5 className="list-group-item active">
               {watchedList.length ? "Watched" : "No Movies To Watched"}
-              <span className="badge badge-primary badge-pill">
+              <span className="badge badge-dark badge-pill">
                 {watchedList.length}
               </span>
             </h5>
