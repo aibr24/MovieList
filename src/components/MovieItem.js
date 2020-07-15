@@ -9,8 +9,10 @@ const MovieItem = ({ movie }) => {
     <>
       <li className="list-group-item">
         {movie.name}
-        <DeleteButton movie={movie.name} deleteMovie={movieStore.deleteMovie} />
-        <UpdateButton movie={movie} updateMovie={movieStore.updateMovie} />
+        <div>
+          <DeleteButton movie={movie.name} deleteMovie={movieStore.deleteMovie} />
+          <UpdateButton movie={movie} updateMovie={movieStore.updateMovie} />
+        </div>
       </li>
     </>
   );

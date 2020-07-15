@@ -30,40 +30,42 @@ const MovieList = () => {
 
   return (
     <div className="container">
-      <input onChange={(event) => (newMovie = event.target.value)} />
-      <button
-        type="button"
-        class="btn btn-dark"
-        onClick={() => movieStore.createMovie(newMovie)}
-      >
-        add
+      <div align="center">
+        <input onChange={(event) => (newMovie = event.target.value)} />
+        <button
+          type="button"
+          class="btn btn-dark"
+          onClick={() => movieStore.createMovie(newMovie)}
+        >
+          add
       </button>
-      <div className="container-fluid">
-        <div>
-          <Searchbar setQuery={setQuery} />
-          <div className="list-group ">
-            <h4 className="list-group-item active">
+      </div>
+      <div className="container-fluid ">
+        <div className="row" >
+          <div className="list-group col-lg-6 col-md-6 col-sm-12">
+            <Searchbar setQuery={setQuery} />
+            <h5 className="list-group-item active">
               WatchList
               <span className="badge badge-primary badge-pill">
                 {movieList.length}
               </span>
-            </h4>
+            </h5>
 
             {movieList}
           </div>
-          <div className="list-group">
+          <div className="list-group col-lg-6 col-md-6 col-sm-12">
             <Searchbar setQuery={setQuery} />
-            <h4>
+            <h5 className="list-group-item active">
               Watched
               <span className="badge badge-primary badge-pill">
                 {watchedList.length}
               </span>
-            </h4>
+            </h5>
             {watchedList}
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 export default observer(MovieList);

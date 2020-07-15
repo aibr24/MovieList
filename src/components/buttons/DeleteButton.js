@@ -8,10 +8,10 @@ const DeleteButton = ({ movie }) => {
   return (
     <button
       type="button"
-      class="btn btn-danger"
+      class="btn btn-danger btn-sm float-right"
       onClick={() => movieStore.deleteMovie(movie)}
     >
-      Danger
+      Delete
     </button>
   );
 };
